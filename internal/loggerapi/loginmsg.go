@@ -38,6 +38,8 @@ func (lm *logMsg) getLoginStatus() error {
 		return myerr.ErrDuplicate
 	case "从Radius获取错误代码出现异常":
 		return myerr.ErrIpError
+	case "运营商账号在线数超出限制，请联系运营商处理(Rad:Limit Users Err)":
+		return myerr.ErrMaxConn
 	default:
 		return myerr.ErrUnknown
 	}
